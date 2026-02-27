@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🎨 Artistic Coloring Studio 🖌️</title>
+    <!-- favicon (logo as PNG) -->
+    <link rel="icon" type="image/png" href="https://github.com/TitanBusinessPros/Xtreme-Coloring/raw/main/Logo-T-P-1.png">
+    <!-- Font Awesome for Facebook icon (free version) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -13,7 +17,13 @@
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            /* Background image added as requested – tiles/covers nicely */
+            background-image: url('https://github.com/TitanBusinessPros/Xtreme-Coloring/raw/main/X-BG.png');
+            background-size: cover;          /* scales image to cover entire area */
+            background-attachment: fixed;     /* keeps background fixed while scrolling */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #0f2027;       /* fallback color */
             min-height: 100vh;
             padding: 20px;
             overflow-x: hidden;
@@ -43,6 +53,22 @@
             border-radius: 22px;
             z-index: -1;
             opacity: 0.7;
+        }
+        
+        /* ----- LOGO at top (now 2.5x larger) ----- */
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .top-logo {
+            max-width: 550px;        /* 2.5x original 220px */
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.05);
+            padding: 8px 16px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            border: 1px solid rgba(100,150,255,0.3);
         }
         
         h1 {
@@ -442,6 +468,65 @@
             object-fit: contain;
         }
         
+        /* ----- FOOTER SECTION ----- */
+        .site-footer {
+            margin-top: 40px;
+            padding: 25px 20px 15px;
+            background: rgba(20, 20, 30, 0.7);
+            border-radius: 20px;
+            border: 1px solid rgba(100, 150, 255, 0.15);
+            text-align: center;
+            color: #ccc;
+            font-size: 1rem;
+            backdrop-filter: blur(4px);
+        }
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+        .footer-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .footer-item a {
+            color: #8bb5ff;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-weight: 500;
+        }
+        .footer-item a:hover {
+            color: #ffb347;
+            text-decoration: underline;
+        }
+        .footer-item i {
+            font-size: 1.6rem;
+            color: #1877f2; /* Facebook blue */
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+        .footer-item .phone-icon {
+            font-size: 1.3rem;
+            color: #6ab04c;
+            margin-right: 4px;
+        }
+        .footer-copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #aaa;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 15px;
+        }
+        .footer-copyright a {
+            color: #bb9bff;
+            text-decoration: none;
+        }
+        .footer-copyright a:hover {
+            text-decoration: underline;
+        }
+        
         @media (max-width: 768px) {
             .toolbar {
                 flex-direction: column;
@@ -475,12 +560,22 @@
                 height: 50px;
                 font-size: 25px;
             }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🎨 Sophie's Line Art🖌️</h1>
+        <!-- TOP LOGO (now 2.5x larger) -->
+        <div class="logo-container">
+            <img class="top-logo" src="https://github.com/TitanBusinessPros/Xtreme-Coloring/raw/main/Logo-T-P-1.png" alt="Xtreme Landscaping & Pressure WorX logo">
+        </div>
+        
+        <h1>🎨 Kids Coloring Book 🖌️</h1>
         
         <div id="sectionSelection">
             <div class="sections">
@@ -550,21 +645,21 @@
                     <div class="color-swatch" style="background-color: #f368e0;" onclick="setColor('#f368e0')"></div>
                     
                     <!-- New Basic Colors -->
-                    <div class="color-swatch" style="background-color: #8B4513;" onclick="setColor('#8B4513')"></div> <!-- Brown -->
-                    <div class="color-swatch" style="background-color: #000000;" onclick="setColor('#000000')"></div> <!-- Black -->
-                    <div class="color-swatch" style="background-color: #C0C0C0;" onclick="setColor('#C0C0C0')"></div> <!-- Silver -->
-                    <div class="color-swatch" style="background-color: #808080;" onclick="setColor('#808080')"></div> <!-- Grey -->
-                    <div class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ccc;" onclick="setColor('#FFFFFF')"></div> <!-- White -->
-                    <div class="color-swatch" style="background-color: #FFD700;" onclick="setColor('#FFD700')"></div> <!-- Gold -->
-                    <div class="color-swatch" style="background-color: #964B00;" onclick="setColor('#964B00')"></div> <!-- Dark Brown -->
-                    <div class="color-swatch" style="background-color: #FF69B4;" onclick="setColor('#FF69B4')"></div> <!-- Hot Pink -->
-                    <div class="color-swatch" style="background-color: #00CED1;" onclick="setColor('#00CED1')"></div> <!-- Dark Turquoise -->
-                    <div class="color-swatch" style="background-color: #228B22;" onclick="setColor('#228B22')"></div> <!-- Forest Green -->
-                    <div class="color-swatch" style="background-color: #8A2BE2;" onclick="setColor('#8A2BE2')"></div> <!-- Blue Violet -->
-                    <div class="color-swatch" style="background-color: #DC143C;" onclick="setColor('#DC143C')"></div> <!-- Crimson -->
-                    <div class="color-swatch" style="background-color: #FF8C00;" onclick="setColor('#FF8C00')"></div> <!-- Dark Orange -->
-                    <div class="color-swatch" style="background-color: #4B0082;" onclick="setColor('#4B0082')"></div> <!-- Indigo -->
-                    <div class="color-swatch" style="background-color: #00FF00;" onclick="setColor('#00FF00')"></div> <!-- Lime -->
+                    <div class="color-swatch" style="background-color: #8B4513;" onclick="setColor('#8B4513')"></div>
+                    <div class="color-swatch" style="background-color: #000000;" onclick="setColor('#000000')"></div>
+                    <div class="color-swatch" style="background-color: #C0C0C0;" onclick="setColor('#C0C0C0')"></div>
+                    <div class="color-swatch" style="background-color: #808080;" onclick="setColor('#808080')"></div>
+                    <div class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ccc;" onclick="setColor('#FFFFFF')"></div>
+                    <div class="color-swatch" style="background-color: #FFD700;" onclick="setColor('#FFD700')"></div>
+                    <div class="color-swatch" style="background-color: #964B00;" onclick="setColor('#964B00')"></div>
+                    <div class="color-swatch" style="background-color: #FF69B4;" onclick="setColor('#FF69B4')"></div>
+                    <div class="color-swatch" style="background-color: #00CED1;" onclick="setColor('#00CED1')"></div>
+                    <div class="color-swatch" style="background-color: #228B22;" onclick="setColor('#228B22')"></div>
+                    <div class="color-swatch" style="background-color: #8A2BE2;" onclick="setColor('#8A2BE2')"></div>
+                    <div class="color-swatch" style="background-color: #DC143C;" onclick="setColor('#DC143C')"></div>
+                    <div class="color-swatch" style="background-color: #FF8C00;" onclick="setColor('#FF8C00')"></div>
+                    <div class="color-swatch" style="background-color: #4B0082;" onclick="setColor('#4B0082')"></div>
+                    <div class="color-swatch" style="background-color: #00FF00;" onclick="setColor('#00FF00')"></div>
                 </div>
             </div>
             
@@ -647,6 +742,32 @@
                 <button class="action-btn download-btn" onclick="downloadCanvas()">📥 Download as PNG</button>
             </div>
         </div>
+
+        <!-- ===== FOOTER SECTION (added) ===== -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <!-- Facebook icon with link -->
+                <div class="footer-item">
+                    <a href="https://www.facebook.com/xtremeworx918" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <i class="fab fa-facebook-square"></i>
+                    </a>
+                    <a href="https://www.facebook.com/xtremeworx918" target="_blank" rel="noopener noreferrer">@xtremeworx918</a>
+                </div>
+                <!-- Phone number -->
+                <div class="footer-item">
+                    <i class="fas fa-phone-alt phone-icon" style="color: #6ab04c;"></i>
+                    <span>918-565-0068</span>
+                </div>
+                <!-- Company name linked (duplicate but as text) -->
+                <div class="footer-item">
+                    <i class="fas fa-globe" style="color: #8bb5ff;"></i>
+                    <a href="https://www.xtremeworx918.com/" target="_blank" rel="noopener noreferrer">Xtreme Landscaping & Pressure WorX LLC</a>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                © Copyright 2026 Xtreme Landscaping & Pressure WorX LLC. All rights reserved.
+            </div>
+        </footer>
     </div>
 
     <script>
@@ -684,7 +805,6 @@
                 'https://github.com/TitanBusinessPros/KCF-Animals/raw/main/Racoon.png',
                 'https://github.com/TitanBusinessPros/KCF-Animals/raw/main/Penguin.png',
                 'https://github.com/TitanBusinessPros/KCF-Animals/raw/main/Parakeet.png',
-            ,
             ],
             2: [
                 // Vehicles section - placeholder images
